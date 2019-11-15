@@ -7,11 +7,32 @@
     type="text"
     class="form-control"
     [(ngModel)]="serverName">
+
+  <div class="container">
+    <label>Username</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="userName"
+      (change)="onChangeUser()"
+    >
+    <button
+      class="btn btn-primary"
+      [disabled]="!enableButton"
+      (click)="resetField()"
+     >Reset</button>
+    <p>{{ userName }}</p>
+
+  </div>
+
+
   <p>{{ serverName }}</p>
 <button
   class="btn btn-primary"
   [disabled]="!allowNewServer"
   (click)="onCreateServer()">Add server</button>
 <p>{{ serverCreationStatus }}</p>
+
+
 <app-server></app-server>
 <app-server></app-server>

@@ -11,6 +11,10 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = "No server was created";
   serverName = '';
 
+  // username
+  enableButton = false;
+  userName = "";
+
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
@@ -24,8 +28,27 @@ export class ServersComponent implements OnInit {
     this.serverCreationStatus = "Server was created";
   }
 
+
   onUpdateServerName(event: Event) {
     this.serverName =  (<HTMLInputElement>event.target).value;
+  }
+
+  // // username
+  // onCreateUser(event: Event) {
+  //   this.userName =  (<HTMLInputElement>event.target).value;
+  // }
+
+  onChangeUser() {
+    if (this.userName == "") {
+      this.enableButton = false;
+    } else {
+      this.enableButton = true;
+    }
+  }
+
+  resetField() {
+    this.userName = "";
+    this.enableButton = false;
   }
 
 }
